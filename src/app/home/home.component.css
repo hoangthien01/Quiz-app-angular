@@ -1,0 +1,25 @@
+.home {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fbd663;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 60px;
+}
+.btn-start {
+  padding: 16px 32px;
+  cursor: pointer;
+  margin-top: 32px;
+  border-radius: 6px;
+  border: none;
+  background-color: cornflowerblue;
+  color: #fff;
+  font-size: 20px;
+}

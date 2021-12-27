@@ -1,1 +1,27 @@
-<p>result works!</p>
+<div class="wrapper">
+  <div class="content">
+    <h1 class="title">Result</h1>
+    <div class="result">
+      <div class="result-item">
+        <span style="margin-right:10px">Correct Answer:</span>
+        <span style="color: rgb(84, 230, 84);">
+          <!-- {{this.$store.state.correctAnswer}}  -->
+        </span>
+      </div>
+      <div class="result-item">
+        <span style="margin-right:10px">Wrong Answer:</span>
+        <span style="color:rgb(236, 73, 73)">
+          <!-- {{this.$store.state.wrongAnswer}}  -->
+        </span>
+      </div>
+    </div>
+    <div class="time">
+      <span style="margin-right:10px">Thời gian hoàn thành:</span>
+      <!-- <span>{{new Date(this.$store.state.completionTime * 1000).toISOString().substr(11, 8)}}s</span> -->
+    </div>
+    <p class="message">
+      <!-- {{this.$store.state.resultMessage}} -->
+    </p>
+    <button class="btn-reset" (click)="resetGame()">Try again</button>
+  </div>
+</div>

@@ -1,12 +1,36 @@
-<p>quiz works!</p>
+<!-- <p>quiz works!</p>
 <div class="quiz">
     <div class="quiz-num">Question {{quizId}}</div>
-    <div class="quiz-question" >
+    <div class="quiz-question">
         {{data.results[quizId-1].question}}
     </div>
     <div class="quiz-answers">
         <ul>
-            <li class="quiz-answers__item" (click)='nextQuestion()' *ngFor='let item of data.results[quizId-1].incorrect_answers ; let i= index'>{{item}}</li>
+            <li class="quiz-answers__item" (click)='nextQuestion()'
+                *ngFor='let item of data.results[quizId-1].incorrect_answers ; let i= index'>{{item}}</li>
         </ul>
+    </div>
+</div> -->
+
+<div class="quiz-wraper">
+    <div class="content">
+        <div>
+            <h1 class="title">QUIZ</h1>
+            <span class="numq-questions">{{quizId}} / {{data.length}}</span>
+        </div>
+        <div class="process-bar ">
+            <span id="process"></span>
+        </div>
+        <div class="content-question">
+            <!-- <p>{{htmlDecode(questions[index].question)}}</p> -->
+            <p>{{htmlDecode(data[quizId-1].question)}}</p>
+        </div>
+        <div class="content-answers">
+            <div class="content-answer" *ngFor='let item of data[quizId-1].answers ; let i= index'
+                (click)='nextQuestion()'>
+                {{htmlDecode(item)}}
+                <!-- {{htmlDecode(answer)}} -->
+            </div>
+        </div>
     </div>
 </div>
