@@ -1,12 +1,12 @@
 <p>quiz works!</p>
 <div class="quiz">
     <div class="quiz-question" >
-        {{quizs[quizId-1].question}}
+        {{data.results[quizId-1].question}}
     </div>
     <div class="quiz-answers">
         <ul>
 
-            <li class="quiz-answers__item" *ngFor='let item of quizs[quizId-1].incorrect_answers ; let i= index'>{{item}}</li>
+            <li class="quiz-answers__item" *ngFor='let item of data.results[quizId-1].incorrect_answers ; let i= index'>{{item}}</li>
         </ul>
     </div>
     <button class="nextQuestion" (click)='nextQuestion()'>Next</button>

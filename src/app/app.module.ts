@@ -7,17 +7,19 @@ import { HomeComponent } from './home/home.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { ResultComponent } from './result/result.component';
 import { StoreModule } from '@ngrx/store';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     QuizComponent,
-    ResultComponent
+    ResultComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     StoreModule.forRoot({}, {})
   ],
   providers: [],
