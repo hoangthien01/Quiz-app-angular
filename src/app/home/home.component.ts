@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { getQuizs } from '../core/store/actions'
+import { Store } from '@ngrx/store'
 
 @Component({
   selector: 'app-home',
@@ -6,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {}
 
-  startGame() {}
+  startGame() {
+    this.store.dispatch(getQuizs())
+  }
 }
