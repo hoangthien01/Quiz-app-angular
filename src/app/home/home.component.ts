@@ -1,13 +1,8 @@
 import { KeyValue } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { shareReplay } from 'rxjs/internal/operators/shareReplay';
-=======
-import { getQuizs } from '../core/store/actions'
-import { Store } from '@ngrx/store'
->>>>>>> 3fc5be9d38c570946e1e466497578c62f9ba13d3
 
 @Component({
   selector: 'app-home',
