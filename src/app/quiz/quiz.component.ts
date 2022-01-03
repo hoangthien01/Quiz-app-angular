@@ -1,6 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ApiService } from '../api.service';
+import { Quiz } from '../core/models/quiz.model';
+// import { VmFromLatest } from '../../app/core/utils/operators.utils'
+interface QuizListVm {
+  quizs: Quiz[];
+}
 
 @Component({
   selector: 'app-quiz',
