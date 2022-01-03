@@ -11,7 +11,7 @@
 }
 
 .title {
-  font-size: 60px;
+  font-size: 100px;
 }
 .btn-start {
   padding: 16px 32px;
@@ -22,4 +22,14 @@
   background-color: cornflowerblue;
   color: #fff;
   font-size: 20px;
+}
+
+.select-box {
+  margin-right: 20px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 16px;
 }

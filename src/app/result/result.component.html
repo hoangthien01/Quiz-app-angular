@@ -5,22 +5,22 @@
       <div class="result-item">
         <span style="margin-right:10px">Correct Answer:</span>
         <span style="color: rgb(84, 230, 84);">
-          <!-- {{this.$store.state.correctAnswer}}  -->
+          {{correctNum}}
         </span>
       </div>
       <div class="result-item">
         <span style="margin-right:10px">Wrong Answer:</span>
         <span style="color:rgb(236, 73, 73)">
-          <!-- {{this.$store.state.wrongAnswer}}  -->
+          {{inCorrectNum}}
         </span>
       </div>
     </div>
     <div class="time">
       <span style="margin-right:10px">Thời gian hoàn thành:</span>
-      <!-- <span>{{new Date(this.$store.state.completionTime * 1000).toISOString().substr(11, 8)}}s</span> -->
+      <span>{{ completionTime * 1000 | date:'H:mm:ss':'UTC'}}</span>
     </div>
     <p class="message">
-      <!-- {{this.$store.state.resultMessage}} -->
+      {{resultMessage}}
     </p>
     <button class="btn-reset" (click)="resetGame()">Try again</button>
   </div>

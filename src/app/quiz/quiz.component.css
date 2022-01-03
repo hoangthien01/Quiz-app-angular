@@ -18,6 +18,11 @@
   background-color: #fff;
   text-align: left;
 }
+.content-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .title {
   font-size: 30px;
   color: #273b62;

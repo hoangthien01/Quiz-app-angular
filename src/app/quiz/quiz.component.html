@@ -1,36 +1,25 @@
-<!-- <p>quiz works!</p>
-<div class="quiz">
-    <div class="quiz-num">Question {{quizId}}</div>
-    <div class="quiz-question">
-        {{data.results[quizId-1].question}}
-    </div>
-    <div class="quiz-answers">
-        <ul>
-            <li class="quiz-answers__item" (click)='nextQuestion()'
-                *ngFor='let item of data.results[quizId-1].incorrect_answers ; let i= index'>{{item}}</li>
-        </ul>
-    </div>
-</div> -->
-
-<div class="quiz-wraper">
+<div class="quiz-wraper" *ngIf="!finish; else elseBlock">
     <div class="content">
-        <div>
+        <div class="content-head">
             <h1 class="title">QUIZ</h1>
-            <span class="numq-questions">{{quizId}} / {{data.length}}</span>
+            <span class="numq-questions">{{quizId }} / {{data.length}}</span>
         </div>
         <div class="process-bar ">
-            <span id="process"></span>
+            <span id="process" [style.width.%]="process"></span>
         </div>
         <div class="content-question">
-            <!-- <p>{{htmlDecode(questions[index].question)}}</p> -->
             <p>{{htmlDecode(data[quizId-1].question)}}</p>
         </div>
         <div class="content-answers">
             <div class="content-answer" *ngFor='let item of data[quizId-1].answers ; let i= index'
-                (click)='nextQuestion()'>
+                (click)='nextQuestion(item)'>
                 {{htmlDecode(item)}}
-                <!-- {{htmlDecode(answer)}} -->
             </div>
         </div>
     </div>
 </div>
+<ng-template #elseBlock>
+    <app-result [completionTime]="completionTime" [correctNum]="correctNum" [inCorrectNum]="inCorrectNum"
+        [resultMessage]="resultMessage"></app-result>
+
+</ng-template>

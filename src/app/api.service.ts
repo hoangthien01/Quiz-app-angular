@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
- 
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
- 
-  constructor(public httpClient: HttpClient) { }
+  constructor(public httpClient: HttpClient) {}
 
-  public getNews(){
-    return this.httpClient.get('https://opentdb.com/api.php?amount=10');
+  public getQuizs(url: string) {
+    return this.httpClient.get(url);
   }
 }

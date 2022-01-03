@@ -1,6 +1,11 @@
-<div class="home">
+<div class="home ">
     <div class="title">
         Quiz App
     </div>
-    <button class="btn-start" (click)="startGame()" routerLink="/quiz">Start</button>
+    <div>
+        <select [(ngModel)]="selectedValue" (ngModelChange)="onChange($event)" class="select-box">
+            <option *ngFor="let c of categories" [ngValue]="c.value">{{c.label}}</option>
+        </select>
+        <button class="btn-start" (click)="startGame()">Start</button>
+    </div>
 </div>
