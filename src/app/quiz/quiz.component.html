@@ -1,25 +1,47 @@
 <div class="quiz-wraper" *ngIf="!finish; else elseBlock">
-    <div class="content">
-        <div class="content-head">
-            <h1 class="title">QUIZ</h1>
-            <span class="numq-questions">{{quizId }} / {{data.length}}</span>
-        </div>
-        <div class="process-bar ">
-            <span id="process" [style.width.%]="process"></span>
-        </div>
-        <div class="content-question">
-            <p>{{htmlDecode(data[quizId-1].question)}}</p>
-        </div>
-        <div class="content-answers">
-            <div class="content-answer" *ngFor='let item of data[quizId-1].answers ; let i= index'
-                (click)='nextQuestion(item)'>
-                {{htmlDecode(item)}}
-            </div>
-        </div>
+  <div class="content">
+    <div class="content-head">
+      <h1 class="title">QUIZ</h1>
+      <span class="numq-questions">{{ quizId }} / {{ data.length }}</span>
     </div>
+    <div class="process-bar">
+      <span id="process" [style.width.%]="process"></span>
+    </div>
+    <div class="content-question">
+      <p>{{ htmlDecode(data[quizId - 1].question) }}</p>
+    </div>
+    <div class="content-answers">
+      <button
+        class="content-answer"
+        *ngFor="let item of data[quizId - 1].answers; let i = index"
+        (click)="chooseAnswer(item)"
+        [disabled]="answer !== ''"
+        [ngClass]="{
+          'correct-answer':
+            item === data[quizId - 1].correct_answer && answer !== ''
+        }"
+        [ngClass]="{
+          'wrong-answer':
+            item !== data[quizId - 1].correct_answer && answer === item
+        }"
+      >
+        {{ htmlDecode(item) }}
+      </button>
+    </div>
+    <button
+      class="btn-next"
+      (click)="nextQuestion()"
+      [disabled]="answer === ''"
+    >
+      Next
+    </button>
+  </div>
 </div>
 <ng-template #elseBlock>
-    <app-result [completionTime]="completionTime" [correctNum]="correctNum" [inCorrectNum]="inCorrectNum"
-        [resultMessage]="resultMessage"></app-result>
-
+  <app-result
+    [completionTime]="completionTime"
+    [correctNum]="correctNum"
+    [inCorrectNum]="inCorrectNum"
+    [resultMessage]="resultMessage"
+  ></app-result>
 </ng-template>

@@ -1,8 +1,9 @@
 import { KeyValue } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { shareReplay } from 'rxjs/internal/operators/shareReplay';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-home',
@@ -34,13 +35,37 @@ export class HomeComponent implements OnInit {
       label: 'Celebrities',
     },
   ];
-  constructor(private route: Router) {}
+  data: any = [];
+  loading: Boolean = false;
+
+  constructor(private route: Router, private apiService: ApiService) {}
 
   ngOnInit(): void {}
 
-  startGame() {
-    // this.route.navigate(['quiz']);
-    this.route.navigateByUrl('/quiz', { state: { url: this.url } });
+  async startGame() {
+    this.loading = true;
+    await this.apiService.getQuizs(this.url).subscribe((response) => {
+      let newData = JSON.parse(JSON.stringify(response)).results.map(
+        (question: any) => {
+          question.answers = [
+            question.correct_answer,
+            ...question.incorrect_answers,
+          ];
+          for (let i = question.answers.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [question.answers[i], question.answers[j]] = [
+              question.answers[j],
+              question.answers[i],
+            ];
+          }
+          return question;
+        }
+      );
+      this.data = newData;
+      this.route.navigateByUrl('/quiz', {
+        state: { url: this.url, data: this.data },
+      });
+    });
   }
 
   onChange(newValue: any) {

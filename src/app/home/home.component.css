@@ -10,9 +10,6 @@
   flex-direction: column;
 }
 
-.title {
-  font-size: 100px;
-}
 .btn-start {
   padding: 16px 32px;
   cursor: pointer;
@@ -32,4 +29,30 @@
   cursor: pointer;
   border-radius: 10px;
   padding: 16px;
+}
+
+.title {
+  font-size: 170px;
+  color: cornflowerblue;
+  font-family: "Modak", cursive;
+  animation-name: wave;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
+}
+.title {
+  animation-duration: 2s;
+  animation-delay: 0.8s;
+}
+@keyframes wave {
+  40%,
+  50% {
+    transform: scale(1.05);
+  }
+  0%,
+  90%,
+  100% {
+    transform: scale(0.95);
+  }
 }

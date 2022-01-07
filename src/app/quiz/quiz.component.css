@@ -57,16 +57,39 @@
 .content-answer {
   font-size: 20px;
   display: block;
-  padding: 8px;
+  padding: 12px 8px;
   border: 1px solid #ccc;
   margin-top: 20px;
   border-radius: 5px;
   cursor: pointer;
   color: #273b62;
   font-weight: 600;
+  width: 100%;
+  text-align: left;
 }
-.content-answer:hover {
+
+/* .content-answer:hover {
   background-color: #f4f5f7;
+} */
+
+.correct-answer {
+  background-color: #3fdd4c;
+}
+
+.wrong-answer {
+  background-color: rgb(238, 63, 63);
+}
+
+.btn-next {
+  float: right;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 32px;
+  border-radius: 6px;
+  border: none;
+  background-color: cornflowerblue;
+  color: #fff;
+  font-size: 20px;
 }
 @media screen and (max-width: 480px) {
   .content {
